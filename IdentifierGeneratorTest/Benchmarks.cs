@@ -9,8 +9,8 @@ namespace IdentifierGeneratorTest
     [RankColumn]
     public class Benchmarks
     {
-        Identifier identifier;
-        Guid guid;
+        private readonly Identifier  identifier;
+        private readonly Guid guid;
         public Benchmarks()
         {
             identifier = new Identifier();
