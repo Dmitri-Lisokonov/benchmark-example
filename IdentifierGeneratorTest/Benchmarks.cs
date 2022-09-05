@@ -4,6 +4,7 @@ namespace IdentifierGeneratorTest
 {
     [MemoryDiagnoser]
     [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
+    [IterationCount(100)] // Set iterationCount (optional)
     [RankColumn]
     public class Benchmarks
     {
