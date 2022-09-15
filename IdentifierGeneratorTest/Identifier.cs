@@ -1,4 +1,5 @@
 ﻿
+using HashidsNet;
 using shortid;
 using System.Text.RegularExpressions;
 
@@ -6,7 +7,15 @@ namespace IdentifierGeneratorTest
 {
     public class Identifier
     {
+        Hashids hashIds;
+        Random rng;
+        public Identifier()
+        {
+            hashIds = new Hashids("this is my salt");
+            rng = new Random();
 
+        
+        }
         // c9a646d3-9c61-4cb7-bfcd-ee2522c8f633
         public string NewId_FromGuid() => Guid.NewGuid().ToString();
 
@@ -36,6 +45,12 @@ namespace IdentifierGeneratorTest
         public string NewId_FromShortId()
         {
             return ShortId.Generate();
+        }
+
+        public string NewId_FromHashId()
+        {
+            var intId = rng.Next(int.MaxValue);
+            return hashIds.Encode(intId);
         }
 
     }

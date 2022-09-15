@@ -32,13 +32,19 @@ namespace IdentifierGeneratorTest
         [Benchmark]
         public void NewId_FromGuidShorted()
         {
-            identifier.NewId_FromGuidBase64Substring(guid);
+            identifier.NewId_FromGuidShorted(guid);
         }
 
         [Benchmark]
         public void NewId_FromShortId()
         {
-            identifier.NewId_FromGuidBase64Substring(guid);
+            identifier.NewId_FromShortId();
+        }
+
+        [Benchmark]
+        public void NewId_FromHashId()
+        {
+            identifier.NewId_FromHashId();
         }
 
     }
